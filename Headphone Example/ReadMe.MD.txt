@@ -1,2 +1,2 @@
-There are 3 files in this folder.
-2 files are java files, the Main.java file and the compiled Main.class file. The 3rd file is an equivalent python headphone.py file. Note how much smaller it is. I recommend trying to time the two and seeing how much faster Java as a compiled vs interpreted language is though. This stuff could matter when designing projects that need to be fast.
+There are 2 in this folder.
+2 files are java files (but one of them isn't available here because GitIgnore is pretty awesome), the Main.java file and the compiled Main.class file (which is purposefully not included here). The 3rd file is an equivalent python headphone.py file. Note how much smaller it is. I recommend trying to time the two and seeing how much faster Java as a compiled vs interpreted language is though. This stuff could matter when designing projects that need to be fast.
