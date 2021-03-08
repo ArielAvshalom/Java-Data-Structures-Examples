@@ -23,6 +23,10 @@ class singly_linked_list:
         while currentvalue is not None:
             print(currentvalue.datavalue)
             currentvalue = currentvalue.nextvalue
+            
+class double_forward_node_list:
+    def __init__(self):
+        pass
     
 list1 = singly_linked_list()
 
