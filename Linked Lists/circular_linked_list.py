@@ -47,7 +47,7 @@ class circular_linked_list:
             
             count -= 1
 
-if __name__ == "__main__": #test code to see 
+if __name__ == "__main__": #Driver code, if will only trigger if code is run from this file.
     node1 = node(1)
     node_last = node(123)
     circle_list = circular_linked_list(node1, node_last)
