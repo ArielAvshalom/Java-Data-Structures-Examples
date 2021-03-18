@@ -46,6 +46,27 @@ class circular_linked_list:
             node_to_print = node_to_print.next
             
             count -= 1
+            
+    def forward_and_back(self):
+        nodes_to_record = [self.head, self.tail]
+        print(self.head)
+        node_to_print = self.head.next
+        
+        reverse = 0
+        
+        while True:
+            if node_to_print == nodes_to_record[0]:
+                print(node_to_print)
+                break
+            if node_to_print == nodes_to_record[1]:
+                reverse = 1
+                
+            if reverse == 1:
+                print(node_to_print)
+                node_to_print = node_to_print.last
+            if reverse == 0:
+                print(node_to_print)
+                node_to_print = node_to_print.next
 
 if __name__ == "__main__": #Driver code, if will only trigger if code is run from this file.
     node1 = node(1)
