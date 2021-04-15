@@ -1,0 +1,1 @@
+This is a sample project which was written quick and easy. You can look at it for inspiration.
