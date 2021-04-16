@@ -64,7 +64,47 @@ public class orderedLinkedList
         sizeOf++;
     }
 
+    public void insertOrdered(int data)
+    {
+        node newNode = new node(data);
+        node current; //the node we'll use to iterate
+        if(checkEmpty() || head.data > newNode.data){ newNode.next = head; head = newNode; sizeOf++;}
+        else
+        {
+            current = head; //starting iteration here
+            while(current != null && current.next.data < newNode.data)
+            {
+                current = current.next;
+                newNode.next = current.next;
+                current.next = newNode;
 
+                // if(newNode.data > current.data){current = current.next;}
+                // //if(newNode.data <= current.data)
+                // else
+                // {
+                //     node previous = current.last;
+                //     node forward = current;
+                //     current = newNode;
+                //     current.last = previous;
+                //     current.next = forward;
+                    
+                    
+                    
+                //     //newNode.last = previous;
+                //     //newNode.next = current;
+                //     //current.last = newNode;
+                //     //previous.next = current;
+                //     //System.out.print("\nInserted " + newNode.data + " between " + newNode.last.data + " aka previous " + previous.data + " and " + newNode.next.data + " current node is " + current.data);
+                //     sizeOf++;
+                //     return;
+                // }
+            }
+            // tail.next = newNode;
+            // newNode.last = tail;
+            // tail = newNode;
+            // sizeOf++;
+        }
+    }
     public void delete(int value)
     {
         node current = head;
