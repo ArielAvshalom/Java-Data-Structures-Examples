@@ -7,6 +7,15 @@ public class orderedLinkedList
     node head;
     node tail;
     int sizeOf;
+    //prettify your tests. 
+    //***********If there is an error when running this program*******
+    //--> change the print command's final System.out.println()
+    //This will work on Eclipse, but probably not on VS Code,
+    //It'll create weird looking ASCII characters.
+
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
 
     class node
     {
@@ -81,15 +90,12 @@ public class orderedLinkedList
                 System.out.print("\nInserted " + newNode.data + " between " + newNode.last.data + " and " + newNode.next.data + "\n");
                 return;
             }
-            
-            
         }
         tail.next = newNode;
         newNode.last = tail;
         tail = newNode;
         sizeOf++;
     }
-
     public void delete(int value)
     {
         //check if the head element has the value you'd like to remove.
@@ -103,7 +109,6 @@ public class orderedLinkedList
             return;
         }
         node current = head;
-
         while(current != null){
             if(current.data== value)
             {
@@ -127,8 +132,10 @@ public class orderedLinkedList
             System.out.print(current.data + "\t");
             current = current.next;
         }
-        System.out.print("\n**finished printing list**\n");
-    }
+        System.out.println("\n" + ANSI_PURPLE + "**finished printing list**" + ANSI_RESET);
+        //*****If error, replace above println with the following:******
+        //System.out.println("\n**finished printing list**");
+        }
     
 
     public static void main(String[] args) {
