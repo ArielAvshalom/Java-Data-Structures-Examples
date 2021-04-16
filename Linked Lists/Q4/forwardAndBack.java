@@ -134,7 +134,6 @@ public class forwardAndBack
         lls.insert(19);
 
         lls.forwardAndBackPrint(); //expect 3,5,5,6,11,13,17,19--,17,13,11,7,5,5,3--
-
         //lls.printSkip(); //expect 3,5,11,17
         //lls.printSkip3(); //expect 3,11,19
 
