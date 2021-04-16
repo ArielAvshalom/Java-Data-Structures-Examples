@@ -65,6 +65,24 @@ public class orderedLinkedList
     }
 
 
+    public void delete(int value)
+    {
+        node current = head;
+
+        while(current != null){
+            if(current.data== value)
+            {
+                node last = current.last;
+                node next = current.next;
+                last.next = next;
+                next.last = last;
+                System.out.print("\nDeleted node " + current.data + " Link established between\t" + last.data + "\tand \t" + next.data + "\n");
+                return;
+            }
+            else{current = current.next;}
+        }
+        System.out.print("\nDid not find node with data value " + value + "\n");
+    }
 
     public void printList(){
         if(checkEmpty()){System.out.print("Empty List"); return;}
