@@ -1,12 +1,8 @@
 public class orderedLinkedList
-//This will solve Q5. It is not complete yet. There is an error in the insertOrdered code somewhere.
+//this solves Q5
 //Over here I have both a regular end-based insert and an ordered insert.
 
-//My delete traverses through the whole linked list because I'm not assuming it's ordered.
-//delete works as long as ordered insert is not used.
-
-//It isn't to difficult to change that into a delete that could stop partway 
-//once the data in the node is greater than the value to delete.
+//My delete traverses through the whole linked list until it finds the value to delete. If it doesn't find it, it'll return that the value was not found.
 {
     node head;
     node tail;
@@ -64,49 +60,48 @@ public class orderedLinkedList
         sizeOf++;
     }
 
-    public void insertOrdered(int data)
+    public void orderedInsert(int data)
     {
         node newNode = new node(data);
-        node current; //the node we'll use to iterate
-        if(checkEmpty() || head.data > newNode.data){ newNode.next = head; head = newNode; sizeOf++;}
-        else
+        node current;
+        if(checkEmpty() || head.data > newNode.data){ newNode.next = head; head = newNode; sizeOf++; return;}
+        current = head;
+        while(current != null)
         {
-            current = head; //starting iteration here
-            while(current != null && current.next.data < newNode.data)
+            if(newNode.data > current.data){current = current.next;}
+            else //newNode.data <= current.data
             {
-                current = current.next;
-                newNode.next = current.next;
-                current.next = newNode;
+                node last = current.last;
+                last.next = newNode;
+                newNode.last = last;
+                newNode.next = current;
+                current.last = newNode;
 
-                // if(newNode.data > current.data){current = current.next;}
-                // //if(newNode.data <= current.data)
-                // else
-                // {
-                //     node previous = current.last;
-                //     node forward = current;
-                //     current = newNode;
-                //     current.last = previous;
-                //     current.next = forward;
-                    
-                    
-                    
-                //     //newNode.last = previous;
-                //     //newNode.next = current;
-                //     //current.last = newNode;
-                //     //previous.next = current;
-                //     //System.out.print("\nInserted " + newNode.data + " between " + newNode.last.data + " aka previous " + previous.data + " and " + newNode.next.data + " current node is " + current.data);
-                //     sizeOf++;
-                //     return;
-                // }
+                sizeOf++;
+                System.out.print("\nInserted " + newNode.data + " between " + newNode.last.data + " and " + newNode.next.data + "\n");
+                return;
             }
-            // tail.next = newNode;
-            // newNode.last = tail;
-            // tail = newNode;
-            // sizeOf++;
+            
+            
         }
+        tail.next = newNode;
+        newNode.last = tail;
+        tail = newNode;
+        sizeOf++;
     }
+
     public void delete(int value)
     {
+        //check if the head element has the value you'd like to remove.
+        if(head.data == value){head = head.next; return;}
+        //check if the tail element has the value you'd like to remove.
+        if(tail.data == value)
+        {
+            node last = tail.last;
+            last.next = null;
+            tail = last; 
+            return;
+        }
         node current = head;
 
         while(current != null){
@@ -156,20 +151,37 @@ public class orderedLinkedList
         lls.insert(13);
 
         lls.insert(17);
+        
         lls.insert(19);
-
-        lls.printList();
-        //lls.insertOrdered(4);
-        lls.printList();
-        //lls.insertOrdered(6);
-        lls.printList();
-
         lls.delete(11);
         lls.delete(9);
         lls.delete(11);
         lls.delete(5);
         lls.printList();
         lls.delete(5);
+        lls.printList();
+        System.out.print("\n***testing for ordered insert***\n");
+        lls.orderedInsert(9);  //in middle
+        lls.orderedInsert(10); //in middle after previous insert
+        lls.orderedInsert(10); //check if duplicates work
+        lls.orderedInsert(11); //in middle
+        lls.orderedInsert(10); //between two inserted nodes
+        lls.orderedInsert(2); //at beginning
+        lls.orderedInsert(18); //towards end of list
+        lls.orderedInsert(20); //at the end.
+        lls.printList();
+        //all of the above inserts work!
+
+        System.out.print("\n***testing for delete***\n");
+        lls.delete(20);
+        lls.delete(19);
+        lls.printList();
+        lls.delete(20);
+        lls.delete(2);
+        lls.printList();
+        lls.delete(10);
+        lls.delete(1);
+        lls.delete(100);
         lls.printList();
 
         //lls.forwardAndBackPrint(); //expect 3,5,5,6,11,13,17,19--,17,13,11,7,5,5,3--
