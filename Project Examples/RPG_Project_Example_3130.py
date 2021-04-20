@@ -125,3 +125,6 @@ if __name__ == "__main__":
     Cam_health = bar(175, 175)
     
     Cam = monster("CamelEruption", "Fire", Cam_health, ["potion, fire gem"], 1.68271, {erupt.name: erupt.power, snore.name : snore.power})
+    
+    #test battle, still a lot of issues but it should work for a basic battle:
+    battle(Hamil, Cam)
