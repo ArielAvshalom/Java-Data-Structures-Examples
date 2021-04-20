@@ -47,10 +47,13 @@ class item:
     pass
 
 class attack:
-    def __init__(self, name, power):
+    def __init__(self, name, power, nature, accuracy, effect, effect_chance):
         self.name = name
         self.power = power
-        #self.nature = nature
+        self.nature = nature
+        self.accuracy = accuracy
+        self.effect = effect
+        self.effect_chance = effect_chance
     
 class environment:
     pass
