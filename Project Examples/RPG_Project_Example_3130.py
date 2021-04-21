@@ -8,7 +8,7 @@ import random as r
 import pprint as p
 
 class player:
-    def __init__(self, name : str, nature : str, bag, health, experience, level : int, money, attack_list) -> None:
+    def __init__(self, name : str, nature : str, bag, health, experience, level : int, money, attack_list, stats) -> None:
         self.name = name
         self.nature = nature
         self.bag = bag
@@ -18,6 +18,7 @@ class player:
         self.money = money
         
         self.attack_list = attack_list
+        self.stats = stats
     
     def __repr__(self):
         return f"The player's name is {self.name}.\nThe player's nature is {self.nature}.\nhis current health is {self.health.current} out of {self.health.limit}.\nThe player's level is over 9000!@O!@!@ (JK, it's {self.level})\n\nThe player has {self.money} crembos."
@@ -42,9 +43,77 @@ class monster:
     
     def __repr__(self):
         return f"The monster's name is {self.name}, the monster's nature is {self.nature}, the monster's health is {self.health.current} out of {self.health.limit} and the monster's drops are {self.drops}. The monster will give you {self.money} upon defeat."
+
+class items:
+    def __init__(self, item_dict):
+        self.item_dict = item_dict
     
-class item:
-    pass
+    def add_item_to_dict(self, item_name, item_effect, item_power = None, item_nature = None):
+        pass
+
+    class item:
+        def __init__(self, name, kind_of_item):
+            self.name = name
+            self.kind_of_item = kind_of_item #is it key to the plot, or a disposable or a weapon etc?
+        
+        def __repr__(self):
+            return f'{self.name} is a {self.kind_of_item} type of item.'
+        
+    class healing(item):
+        def __init__(self, name, effect, power, kind_of_item):
+            super.__init__(self, name, kind_of_item)
+            self.effect = effect
+            self.power = power
+            
+        def describe(self):
+            return f'{self.name} is a {self.kind_of_item} which has a {self.effect} effect and it\'s base {self.effect} power is {self.power}'
+    
+    class damage(item):
+        def __init__(self, name, effect, power, nature, kind_of_item):
+            super.__init__(self, name, kind_of_item)
+            self.effect = effect
+            self.power = power
+            self.nature = nature
+    
+        def describe(self):
+            return f'{self.name} is a {self.kind_of_item} which has a {self.effect} effect and it\'s base {self.effect} power is {self.power}. The nature of this item is {self.nature}.'
+    
+    class armor(item):
+        def __init__(self, name, armor_type, armor_effect, armor_abilities):
+            #not using super will override item's methods
+            self.name = name
+            self.armor_type = armor_type
+            self.armor_effect = armor_effect
+            self.armor_abilities = armor_abilities
+            
+    class weapon(item):
+        pass
+    
+    class pants(armor):
+        #you can inherit from multiple classes with Python.
+        pass
+    
+    class shirt(armor):
+        pass
+    
+    class shoes(armor):
+        pass
+    
+    class helm(armor):
+        pass
+    
+    class sword(weapon):
+        pass
+    
+    class wand(weapon):
+        pass
+    
+    class bow(weapon):
+        pass
+    
+    class arrow(weapon):
+        pass
+            
 
 class attack:
     def __init__(self, name, power, nature, accuracy, effect, effect_chance):
@@ -54,6 +123,10 @@ class attack:
         self.accuracy = accuracy
         self.effect = effect
         self.effect_chance = effect_chance
+        
+    # def attack_success(self) -> bool:
+    #     chance = r.uniform(0, 1)
+    #     if chance
     
 class environment:
     pass
