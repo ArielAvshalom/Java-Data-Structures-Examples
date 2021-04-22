@@ -13,8 +13,8 @@ class AdjNode:
 
 class Graph:
     def __init__(self, num):
-        self.V = num
-        self.graph = [None] * self.V
+        self.number_of_vertices = num
+        self.graph = [None] * self.number_of_vertices
 
     # Add edges
     def add_edge(self, s, d):
@@ -28,7 +28,7 @@ class Graph:
 
     # Print the graph
     def print_agraph(self):
-        for i in range(self.V):
+        for i in range(self.number_of_vertices):
             print("Vertex " + str(i) + ":", end="")
             temp = self.graph[i]
             while temp:
@@ -38,10 +38,10 @@ class Graph:
 
 
 if __name__ == "__main__":
-    V = 5
+    number_of_vertices = 5
 
     # Create graph and edges
-    graph = Graph(V)
+    graph = Graph(number_of_vertices)
     graph.add_edge(0, 1)
     graph.add_edge(0, 2)
     graph.add_edge(0, 3)
