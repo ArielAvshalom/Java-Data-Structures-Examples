@@ -149,7 +149,12 @@ if __name__ == "__main__":
                 5                       19
            17         7                           23
                         11
+    for number in range(25):
+        bt2.insert(number)
+
 """
+
+    
 
 
 
