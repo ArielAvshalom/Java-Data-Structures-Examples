@@ -111,37 +111,38 @@ class binary_tree:
 
     
 
-        
+if __name__ == "__main__":
+    
 
-bt = binary_tree(node(0))
-
-bt.root.value
-
-bt.root.left = node(-21)
-
-bt.root.right = node(17)
-
-bt.root.left.left = node(18)
-bt.root.left.right = node(16)
-bt.root.right.left = node(78)
-bt.root.right.right = node(-47)
-
-#bt.traverse()
-
-bt.contains(0)
-bt.contains(-47)
-
-bt.contains(-21)
-
-bt.contains(15)
-
-bt2 = binary_tree((node(0)))
-bt2.insert(5)
-bt2.insert(7)
-bt2.insert(11)
-bt2.insert(19)
-bt2.insert(23)
-bt2.insert(17)
+    bt = binary_tree(node(0))
+    
+    bt.root.value
+    
+    bt.root.left = node(-21)
+    
+    bt.root.right = node(17)
+    
+    bt.root.left.left = node(18)
+    bt.root.left.right = node(16)
+    bt.root.right.left = node(78)
+    bt.root.right.right = node(-47)
+    
+    #bt.traverse()
+    
+    bt.contains(0)
+    bt.contains(-47)
+    
+    bt.contains(-21)
+    
+    bt.contains(15)
+    
+    bt2 = binary_tree((node(0)))
+    bt2.insert(5)
+    bt2.insert(7)
+    bt2.insert(11)
+    bt2.insert(19)
+    bt2.insert(23)
+    bt2.insert(17)
 
 """
                             0
